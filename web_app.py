@@ -7,13 +7,12 @@ Created on Tue Aug 22 17:51:55 2023
 
 import streamlit as st
 import pandas as pd
-import pickle
+from joblib import load
 import re
 from sklearn.preprocessing import OrdinalEncoder
 
 ## load trained XGBoost model
-with open("best_xgb_model.pkl", "rb") as f:
-    model = pickle.load(f)
+model = load('best_xgb_model.joblib')
 
 ## preprocess function
 def preprocess_data(df):
